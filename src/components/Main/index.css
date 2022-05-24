@@ -1,0 +1,141 @@
+
+  #mn .container {
+    background-color: #15172b;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 500px;
+    padding: 20px;
+    width: 60vw;
+    margin-top: -20vh;
+  }
+
+
+#mn  .form {
+    background-color: #15172b;
+    border-radius: 20px;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    max-height: 100%;
+    
+  }
+
+  
+  #mn  .title {
+    color: #eee;
+    font-family: sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 30px;
+    text-align: center;
+    flex-grow: 0;
+  }
+  
+  
+  #mn  .input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+  }
+  
+  #mn  .ic1 {
+    margin-top: 40px;
+  }
+  
+  #mn  .ic2 {
+    margin-top: 30px;
+  }
+
+  #mn  .form-row {
+    display: flex;
+    
+  }
+  
+  #mn  .form-group {
+    padding: 5px;
+    /* padding: 4px 20px 0; */
+    height: 50px;
+    position: relative;
+    width: 100%;
+  }
+  
+  
+  #mn  .input {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px !important;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+  }
+  
+  #mn  .cut {
+    background-color: #15172b;
+    border-radius: 10px;
+    height: 20px;
+    left: 20px;
+    position: absolute;
+    top: -20px;
+    transform: translateY(0);
+    transition: transform 200ms;
+    width: 102px;
+  }
+  
+  #mn  .cut-short {
+    width: 80px;
+  }
+  
+  #mn  .input:focus ~ .cut,
+  #mn .input:not(:placeholder-shown) ~ .cut {
+    transform: translateY(8px) scale(1);
+  }
+
+  #mn  .placeholder {
+    color: #65657b;
+    font-family: sans-serif;
+    left: 20px;
+    line-height: 14px;
+    pointer-events: none;
+    font-size: 16px;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms;
+    top: 20px;
+  }
+  
+  #mn .input:focus ~ .placeholder,
+  #mn .input:not(:placeholder-shown) ~ .placeholder {
+    transform: translateY(-30px) translateX(10px) scale(0.5);
+  }
+  
+  #mn  .input:not(:placeholder-shown) ~ .placeholder {
+    color: #e5cc3b;
+  }
+  
+  #mn  .input:focus ~ .placeholder {
+    color: #e5cc3b;
+  }
+  
+  #mn  .submit {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    /* outline: 0; */
+    text-align: center;
+    width: 25%;
+  }
+  
+  #mn .submit:active {
+    background-color: #06b;
+  }
