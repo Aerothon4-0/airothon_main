@@ -23,10 +23,10 @@ const FinalPage = ({ props }) => {
                           // need to update on connecting to server
 
     useEffect(() => {
-      setInterval(() => {
-        // Closed the loading
-              setFlag(true)
-      }, 3000);
+      // setInterval(() => {
+      //   // Closed the loading
+      //         setFlag(true)
+      // }, 3000);
          const loadPost = async () => {
   
              axios.get('http://127.0.0.1:5000/code/get_data')
