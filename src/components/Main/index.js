@@ -20,6 +20,7 @@ class Main extends React.Component {
     mobileapp:'Mobile App required?',
     description:'',
     backend:'Backend',
+    Webapptype:'Web Application Type?',
     data:{}
 
   };
@@ -30,29 +31,33 @@ class Main extends React.Component {
     this.setState({
       data:{...this.state.data,[name]:value}
     })
-    if(name=='website_name'){
+    if(name==='website_name'){
       this.setState({
         website_name:value
       })
-    }else if(name=='frontend'){
+    }else if(name==='frontend'){
       this.setState({
         frontend:value
       })
-    }else if(name=='company_name'){
+    }else if(name==='company_name'){
       this.setState({
         company_name:value
       })
-    }else if(name=='mobileapp'){
+    }else if(name==='mobileapp'){
       this.setState({
         mobileapp:value
       })
-    }else if(name=='description'){
+    }else if(name==='description'){
       this.setState({
         description:value
       })
-    }else if(name=='backend'){
+    }else if(name==='backend'){
       this.setState({
         backend:value
+      })
+    }else if(name==='Webapptype'){
+      this.setState({
+        Webapptype:value
       })
     }
   };
@@ -60,15 +65,15 @@ class Main extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     
-    var obj={"website_name" : this.state.website_name,   "company_name" : this.state.company_name,"company_description" : this.state.description,"is_front_end" : true,"front_end" : this.state.frontend,"is_back_end" : true,"back_end" : this.state.backend,"is_mobile_app_end" : this.state.mobileapp}
-    if(this.state.website_name=='' || this.state.company_name=='' || this.state.description=='' || this.state.frontend=='Frontend Framework' || this.state.backend=='Backend' || this.state.mobileapp=='Mobile App required?'){
+    var obj={"website_name" : this.state.website_name,   "company_name" : this.state.company_name,"company_description" : this.state.description,"is_front_end" : true,"front_end" : this.state.frontend,"front_type" : this.state.Webapptype,"is_back_end" : true,"back_end" : this.state.backend,"is_mobile_app_end" : this.state.mobileapp}
+    if(this.state.website_name==='' || this.state.company_name==='' || this.state.description==='' || this.state.frontend==='Frontend Framework' || this.state.backend==='Backend' || this.state.mobileapp==='Mobile App required?' || this.state.Webapptype==='Web Application Type?'){
         alert('Details insufficent, please fill all required fields')
     }else{
 
       // delete the below setstate after updation
-      /*this.setState({
-        redirect: true,
-      });*/
+      // this.setState({
+      //   redirect: true,
+      // });
 
       // update below request code
       
@@ -229,6 +234,29 @@ class Main extends React.Component {
                           <option value="Node">Node</option>
                         </select>
                       </div>
+                      
+                    
+                    </div>
+                    <div className="form-row" style={{marginTop:"-1.5vh"}}>
+                      <div className="form-group input-container ic2" >
+                          <select
+                            id="Webapptype"
+                            name="Webapptype"
+                            className="input"
+                            onChange={this.handleChange}
+                            style={{justifyContent:"left",display:"flex",height:"6vh"}}
+                          >
+                            <option hidden defaultValue >
+                                Web Application Type?
+                            </option>
+                            <option value="org" className="input">
+                              Organization Website
+                            </option>
+                            <option value="blog" className="input">
+                              Blog Website
+                            </option>
+                          </select>
+                        </div>
                     </div>
                     <button
                       type="text"

@@ -3,7 +3,7 @@
     background-color: #15172b;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 500px;
+    height:auto;
     padding: 20px;
     width: 60vw;
     margin-top: -20vh;
@@ -131,7 +131,7 @@
     font-size: 18px;
     height: 50px;
     margin-top: 38px;
-    /* outline: 0; */
+    bottom: 1vh;
     text-align: center;
     width: 25%;
   }
