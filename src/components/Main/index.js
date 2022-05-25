@@ -66,25 +66,25 @@ class Main extends React.Component {
     }else{
 
       // delete the below setstate after updation
-      this.setState({
+      /*this.setState({
         redirect: true,
-      });
+      });*/
 
       // update below request code
-
-      // axios.post('http://127.0.0.1:5000/code/generate_website', obj)
-    // .then(function (response) {
-    //   this.setState({
-    //     redirect: true,
-    //   });
-    //   console.log(response);
-    // })
-    // .catch(function (error) {
-    //   this.setState({
-    //     redirect: true,
-    //   });
-    //   console.log(error);
-    // });
+      
+      axios.post('http://127.0.0.1:5000/code/generate_website', obj)
+     .then((response)=> {
+       this.setState({
+         redirect: true,
+       });
+       console.log(response);
+     })
+     .catch((error) => {
+       this.setState({
+         redirect: true,
+       });
+       console.log(error);
+     });
     }
     
 
