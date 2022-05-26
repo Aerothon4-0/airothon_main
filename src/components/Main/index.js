@@ -150,10 +150,10 @@ class Main extends React.Component {
                           <option hidden defaultValue >
                             Frontend Framework
                           </option>
-                          <option value="React" className="input">
+                          <option value="react" className="input">
                             React
                           </option>
-                          <option value="Angular" className="input">
+                          <option value="Angular" disabled="true" className="input">
                             Angular
                           </option>
                         </select>
@@ -185,7 +185,7 @@ class Main extends React.Component {
                           <option hidden defaultValue >
                               Mobile App required?
                           </option>
-                          <option value="true" className="input">
+                          <option value="true" disabled="true" className="input">
                             Yes
                           </option>
                           <option value="false" className="input">
@@ -212,18 +212,7 @@ class Main extends React.Component {
                       </div>
 
                       <div className="form-group input-container ic2 left" style={{height:"8vh"}}>
-                      <select
-                          id="isbackend"
-                          name="isbackend"
-                          className="input"
-                          style={{marginBottom:"2vh"}}
-                        >
-                          <option hidden defaultValue>
-                            Is Backend Required
-                          </option>
-                          <option value={true}>Yes</option>
-                          <option value={false}>No</option>
-                        </select>
+                     
                         <select
                           id="backend"
                           name="backend"
@@ -234,8 +223,8 @@ class Main extends React.Component {
                           <option hidden defaultValue>
                             Backend
                           </option>
-                          <option value="Python">Python</option>
-                          <option value="Node">Node</option>
+                          <option value="python">Python</option>
+                          <option disabled="true" value="Node">Node</option>
                         </select>
                       </div>
                       
