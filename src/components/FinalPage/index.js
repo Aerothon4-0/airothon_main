@@ -4,37 +4,38 @@ import "./index.css";
 import { InputForm } from "./FinalPageElements";
 import Video from "../../videos/video.mp4";
 import { MainBg, VideoBg } from "../Main/MainElements";
-import axios from "axios";
+//import axios from "axios";
 
 const FinalPage = ({ props }) => {
   // console.log("in editor", props);
-  const [url,setUrl] =useState('https://www.WordPress.com');
-  const [compname,setCompanyname] = useState('Company Name');
+  const [url,setURL] =useState('https://www.WordPress.com');
+  /*const [compname,setCompanyname] = useState('Company Name');
   const [website,setWebsite] = useState('Website Name');
   const [description,setDescription] = useState('Company Description');
   const [frontend,setFrontend] = useState('Frontend Used');
-  const [backend,setBackend] = useState('Backend Used');
+  const [backend,setBackend] = useState('Backend Used');*/
   const [isbackend,setIsBackend] = useState(false);
   
   
   const [flag,setFlag] =useState(false)
   const [data,setData] = useState([])
   
-                          // need to update on connecting to server
-
-    useEffect(() => {
+  useEffect(() => {
       // setInterval(() => {
       //   // Closed the loading
       //         setFlag(true)
       // }, 3000);
-         const loadPost = async () => {
+      //console.log(props.response_data)
+      setURL(props.response_data)
+      setFlag(true)
+         /*const loadPost = async () => {
   
              axios.get('http://127.0.0.1:5000/code/get_data')
              .then(function (response) {
                  // After fetching data stored it in posts state.
                  console.log(response)
-                 console.log(response.data.data)
-                setUrl(response.data.data.url)
+                 console.log(response.data.response_data)
+                setURL(response.data.data.url)
                 setCompanyname(response.data.data.company_name)
                 setWebsite(response.data.data.website_name)
                 setDescription(response.data.data.description)
@@ -52,8 +53,8 @@ const FinalPage = ({ props }) => {
          }
   
          // Call the function
-         loadPost();
-    }, []);
+         loadPost();*/
+  }, []);
   return (
     <>
     <FinalPageContainer id="fp">
@@ -70,19 +71,19 @@ const FinalPage = ({ props }) => {
           </div>
           <div className="subtitle">
             {/* edit below */}
-            Your Website Name: {website} 
+            Your Website Name: {props.website_name} 
           </div>
           <div className="subtitle">
             {/* edit below */}
-            Your Company Name: {compname}
+            Your Company Name: {props.company_name}
           </div>
           <div className="subtitle">
             {/* edit below */}
-            Website Description: {description}
+            Website Description: {props.description}
           </div>
             {/* edit below */}
-          <div className="subtitle">Front-end used: {frontend}</div>
-          {isbackend?<div className="subtitle">Back-end used: {backend}</div>:""}
+          <div className="subtitle">Front-end used: {props.frontend}</div>
+          {isbackend?<div className="subtitle">Back-end used: {props.backend}</div>:""}
           <div style={{display:"flex",flexDirection:"row",marginTop:0,paddingLeft:"20%"}} className="subtitle">
               <button
                       type="text"
