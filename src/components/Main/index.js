@@ -21,7 +21,8 @@ class Main extends React.Component {
     description:'',
     backend:'Backend',
     Webapptype:'Web Application Type?',
-    data:{}
+    data:{},
+    response_data:{}
 
   };
 
@@ -64,7 +65,7 @@ class Main extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    
+
     var obj={"website_name" : this.state.website_name,   "company_name" : this.state.company_name,"company_description" : this.state.description,"is_front_end" : true,"front_end" : this.state.frontend,"front_type" : this.state.Webapptype,"is_back_end" : true,"back_end" : this.state.backend,"is_mobile_app_end" : this.state.mobileapp}
     if(this.state.website_name==='' || this.state.company_name==='' || this.state.description==='' || this.state.frontend==='Frontend Framework' || this.state.backend==='Backend' || this.state.mobileapp==='Mobile App required?' || this.state.Webapptype==='Web Application Type?'){
         alert('Details insufficent, please fill all required fields')
@@ -79,10 +80,13 @@ class Main extends React.Component {
       
       axios.post('http://127.0.0.1:5000/code/generate_website', obj)
      .then((response)=> {
+      this.setState({
+        response_data: response.data.response_data.frontend_url,
+     });
        this.setState({
-         redirect: true,
+          redirect: true,
        });
-       console.log(response);
+       //console.log(response.data.response_data.frontend_url);
      })
      .catch((error) => {
        this.setState({
