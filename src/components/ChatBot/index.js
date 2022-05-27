@@ -12,10 +12,10 @@ const ChatBot = ({ setShow }) => {
     var obj = {"message_from_user":message}
     axios.post('http://0.0.0.0:5000/code/chatbotreply', obj)
      .then((response)=> {
-        //console.log(response)
-        setResponse(response.data)
+        console.log(response.data.message)
+        setResponse(response.data.message)
         const newDiv = [<div className="chatbot_message_send">{message}</div>];
-        const respDiv = [<div className="chatbot_message_receive">{response.data}</div>]
+        const respDiv = [<div className="chatbot_message_receive">{response.data.message}</div>]
         setX([...x, ...newDiv,...respDiv]);
      })
      .catch((error) => {
