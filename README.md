@@ -1,26 +1,28 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Requirements
 
-### Flask
+- ### Flask
 
-#### `pip install flask`
+    #### `pip install flask`
 
-### React
+- ### React
 
-In the client directory, you can run:
-#### `npm install`
+    In the client directory, you can run:
+    #### `npm install`
+   
+- ### Docker
 
-### Ports 5000-5010 and 3000-3010 should be available
+   
+
+- ### Ports 5000-5010 and 3000-3010 should be available
 
 
 ## Frontend URL
-### Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- #### Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ## Backend URL
-###
+- #### [http://0.0.0.0:5001/user/get_data](http://0.0.0.0:5001/user/get_data)
 
-## When we inpuut the details and press submit, the user's project will be deployed in a seperate port using docker.
+#### When we input the details and press submit, the user's project will be deployed in a seperate port using docker.
 
