@@ -13,7 +13,7 @@
 
 .chatbot_header {
   height: 4rem;
-  background-color: black;
+  background-color: rgb(143, 23, 23);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,7 +64,7 @@
 }
 
 .chatbot_message_send {
-  background-color: gray;
+  background-color: rgb(241, 238, 238);
   padding: 1rem;
   height: auto;
   min-height: 3rem;
@@ -75,7 +75,7 @@
 }
 
 .chatbot_message_receive {
-  background-color: gray;
+  background-color: rgb(241, 238, 238);
   padding: 1rem;
   height: auto;
   min-height: 3rem;
