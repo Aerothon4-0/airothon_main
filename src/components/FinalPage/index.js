@@ -21,7 +21,7 @@ const FinalPage = ({ props }) => {
   const [data,setData] = useState([])
   
   useEffect(() => {
-      // setInterval(() => {
+      // setTimeout(() => {
       //   // Closed the loading
       //         setFlag(true)
       // }, 3000);
@@ -85,18 +85,21 @@ const FinalPage = ({ props }) => {
           <div className="subtitle">Front-end used: {props.frontend}</div>
           {isbackend?<div className="subtitle">Back-end used: {props.backend}</div>:""}
           <div style={{display:"flex",flexDirection:"row",marginTop:0,paddingLeft:"20%"}} className="subtitle">
-              <button
+              {props.frontend==='React Native'?<p style={{marginTop:"3vh",paddingLeft:"-10%"}}>
+                Note :: You have implemented a react native VR application. Since the VR can't be demonstrated on website, we have provided with a github repositary link which contains the apk for the application and the application code.
+              </p>:<button
                       type="text"
                       className="submit "
                     >
                       Download Front-end code
-                    </button>
-                <button
-                  type="text"
-                  className="submit "
-                >
-                  Download Back-end code
-                </button>
+                    </button>}
+              {props.frontend==='React Native'?null:<button
+                type="text"
+                className="submit "
+              >
+                Download Back-end code
+              </button>}
+                
           </div>
           
         </div>:<div>Loading.....</div>}

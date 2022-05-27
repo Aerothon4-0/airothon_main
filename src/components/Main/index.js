@@ -22,7 +22,6 @@ class Main extends React.Component {
     description:'',
     backend:'Backend',
     Webapptype:'Web Application Type?',
-    data:{},
     response_data:{}
 
   };
@@ -30,9 +29,7 @@ class Main extends React.Component {
   handleChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
-    this.setState({
-      data:{...this.state.data,[name]:value}
-    })
+    
     if(name==='website_name'){
       this.setState({
         website_name:value
@@ -68,8 +65,19 @@ class Main extends React.Component {
     e.preventDefault();
 
     var obj={"website_name" : this.state.website_name,   "company_name" : this.state.company_name,"company_description" : this.state.description,"is_front_end" : true,"front_end" : this.state.frontend,"front_type" : this.state.Webapptype,"is_back_end" : true,"back_end" : this.state.backend,"is_mobile_app_end" : this.state.mobileapp}
-    if(this.state.website_name==='' || this.state.company_name==='' || this.state.description==='' || this.state.frontend==='Frontend Framework' || this.state.backend==='Backend' || this.state.mobileapp==='Mobile App required?' || this.state.Webapptype==='Web Application Type?'){
+    if(this.state.website_name==='' || this.state.company_name==='' || this.state.description==='' || this.state.frontend==='Frontend Framework' || (this.state.mobileapp==='true'?null:this.state.backend==='Backend') || this.state.mobileapp==='Mobile App required?' || this.state.Webapptype==='Web Application Type?'){
         alert('Details insufficent, please fill all required fields')
+    }else if(this.state.mobileapp==='true' && this.state.Webapptype==='vr'){
+      this.setState({
+        showloader:true
+      })
+      setTimeout(() => {
+        this.setState({
+          showloader: false,
+          response_data:'https://www.google.com/',
+          redirect:true
+        });
+      }, 2000);
     }else{
 
       this.setState({
@@ -109,9 +117,7 @@ class Main extends React.Component {
       // console.log("in else", this.state);
       return (
         <>
-        {this.state.showloader?
-            <center>Loading...</center>
-        :<MainContainer id="mn">
+        <MainContainer id="mn">
             <MainBg>
               <VideoBg
                 autoPlay
@@ -121,7 +127,9 @@ class Main extends React.Component {
                 type="video/mp4"
               ></VideoBg>
             </MainBg>
-            <MainContent >
+            {this.state.showloader?
+                  <div style={{color:"white",fontWeight:"bold",zIndex:"9999",marginTop:"-30%"}}><h1>Loading Data From Server....</h1></div>
+              :<MainContent >
               <InputForm >
                 <div className="container" >
                   <div className="title">Welcome</div>
@@ -141,27 +149,25 @@ class Main extends React.Component {
                           Website Name
                         </label>
                       </div>
-
-                      <div className="form-group input-container ic1">
-                        
+                      <div className="form-group input-container ic1" >
                         <select
-                          id="frontend"
-                          name="frontend"
+                          id="mobileapp"
+                          name="mobileapp"
                           className="input"
-                          placeholder=" "
                           onChange={this.handleChange}
-                        > 
+                        >
                           <option hidden defaultValue >
-                            Frontend Framework
+                              Application Type
                           </option>
-                          <option value="react" className="input">
-                            React
+                          <option value="true"  className="input">
+                            Mobile Application
                           </option>
-                          <option value="Angular" disabled="true" className="input">
-                            Angular
+                          <option value="false" className="input">
+                            Web Application
                           </option>
                         </select>
                       </div>
+                      
                     </div>
                     <div className="form-row">
                       <div className="form-group input-container ic2">
@@ -178,26 +184,31 @@ class Main extends React.Component {
                           Company Name
                         </label>
                       </div>
-
-                      <div className="form-group input-container ic2" >
+                      <div className="form-group input-container ic2">
+                        
                         <select
-                          id="mobileapp"
-                          name="mobileapp"
+                          id="frontend"
+                          name="frontend"
                           className="input"
+                          placeholder=" "
                           onChange={this.handleChange}
-                        >
+                        > 
                           <option hidden defaultValue >
-                              Mobile App required?
+                            Frontend Framework
                           </option>
-                          <option value="true" disabled="true" className="input">
-                            Yes
-                          </option>
-                          <option value="false" className="input">
-                            No
-                          </option>
+                          {this.state.mobileapp==='false' ?<option value="react" className="input">
+                            React
+                          </option>:null}
+                          {this.state.mobileapp==='false'?<option value="Angular" disabled="true" className="input">
+                            Angular
+                          </option>:null}
+                          {this.state.mobileapp==='true'?<option value="React Native" className="input">
+                            React Native
+                          </option>:null}
+                          
                         </select>
                       </div>
-                    </div>
+                    </div> 
                     <div className="form-row">
                       <div className="form-group input-container ic2" style={{height:"auto"}}>
                         <textarea
@@ -227,7 +238,7 @@ class Main extends React.Component {
                           <option hidden defaultValue>
                             Backend
                           </option>
-                          <option value="python">Python</option>
+                          <option value="python" disabled={this.state.mobileapp==='true'?true:false}>Python</option>
                           <option disabled="true" value="Node">Node</option>
                         </select>
                       </div>
@@ -243,15 +254,24 @@ class Main extends React.Component {
                             onChange={this.handleChange}
                             style={{justifyContent:"left",display:"flex",height:"6vh"}}
                           >
-                            <option hidden defaultValue >
+                            
+                            {this.state.mobileapp==='true'?<option hidden defaultValue >
+                                Mobile Application Type?
+                            </option>:<option hidden defaultValue >
                                 Web Application Type?
-                            </option>
-                            <option value="org" className="input">
+                            </option>}
+                            {this.state.mobileapp==='true'?null:<option value="org" className="input">
                               Organization Website
-                            </option>
-                            <option value="blog" className="input">
+                            </option>}
+                            {this.state.mobileapp==='true'?null:<option value="blog" className="input">
                               Blog Website
-                            </option>
+                            </option>}
+                            {this.state.mobileapp==='true'?null:<option value="iot" className="input">
+                              IOT
+                            </option>}
+                            {this.state.mobileapp==='true'?<option value="vr" className="input">
+                              VR Application
+                            </option>:null}
                           </select>
                         </div>
                     </div>
@@ -265,8 +285,8 @@ class Main extends React.Component {
                   </div>
                 </div>
               </InputForm>
-            </MainContent>
-          </MainContainer>}
+            </MainContent>}
+          </MainContainer>
           
         </>
       );

@@ -5,11 +5,14 @@ import {
 } from './NavbarElements'
 
 const Navbar = ({toggle}) => {
+    const refresh = ()=>{
+        window.location.reload(false);
+    }
   return (
       <>
-          <Nav>
+          <Nav> 
               <NavbarContainer>
-                  <NavLogo to='/' style={{color:"white"}}>
+                  <NavLogo to='/' style={{color:"white"}} onClick={refresh}>
                       Airothon 4.0
                   </NavLogo>
                   <MobileIcon onClick={toggle}>
