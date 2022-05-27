@@ -1,0 +1,11 @@
+.chatbot-icon {
+  position: fixed;
+  transition: 0.5s, ease-in-out;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: black;
+  z-index: 100;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  cursor: pointer;
+}
