@@ -67,7 +67,7 @@ class Main extends React.Component {
     var obj={"website_name" : this.state.website_name,   "company_name" : this.state.company_name,"company_description" : this.state.description,"is_front_end" : true,"front_end" : this.state.frontend,"front_type" : this.state.Webapptype,"is_back_end" : true,"back_end" : this.state.backend,"is_mobile_app_end" : this.state.mobileapp}
     if(this.state.website_name==='' || this.state.company_name==='' || this.state.description==='' || this.state.frontend==='Frontend Framework' || (this.state.mobileapp==='true'?null:this.state.backend==='Backend') || this.state.mobileapp==='Mobile App required?' || this.state.Webapptype==='Web Application Type?'){
         alert('Details insufficent, please fill all required fields')
-    }else if(this.state.mobileapp==='true' && this.state.Webapptype==='vr'){
+    }else if(this.state.mobileapp==='true' && this.state.Webapptype==='ar'){
       this.setState({
         showloader:true
       })
@@ -269,8 +269,8 @@ class Main extends React.Component {
                             {this.state.mobileapp==='true'?null:<option value="iot" className="input">
                               IOT
                             </option>}
-                            {this.state.mobileapp==='true'?<option value="vr" className="input">
-                              VR Application
+                            {this.state.mobileapp==='true'?<option value="ar" className="input">
+                              AR Application
                             </option>:null}
                           </select>
                         </div>

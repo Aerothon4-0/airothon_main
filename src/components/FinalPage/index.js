@@ -86,7 +86,7 @@ const FinalPage = ({ props }) => {
           {isbackend?<div className="subtitle">Back-end used: {props.backend}</div>:""}
           <div style={{display:"flex",flexDirection:"row",marginTop:0,paddingLeft:"20%"}} className="subtitle">
               {props.frontend==='React Native'?<p style={{marginTop:"3vh",paddingLeft:"-10%"}}>
-                Note :: You have implemented a react native VR application. Since the VR can't be demonstrated on website, we have provided with a github repositary link which contains the apk for the application and the application code.
+                Note :: You have implemented a react native AR application. Since the AR can't be demonstrated on website, we have provided with a github repositary link which contains the apk for the application and the application code.
               </p>:<button
                       type="text"
                       className="submit "
