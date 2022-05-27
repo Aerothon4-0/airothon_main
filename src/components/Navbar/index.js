@@ -10,7 +10,7 @@ const Navbar = ({toggle}) => {
           <Nav>
               <NavbarContainer>
                   <NavLogo to='/' style={{color:"white"}}>
-                      Airothon 4.0
+                      Aerothon 4.0
                   </NavLogo>
                   <MobileIcon onClick={toggle}>
                       <FaBars />
