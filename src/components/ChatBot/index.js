@@ -1,16 +1,30 @@
 import React, { useState } from "react";
 import "./index.css";
+import axios from "axios" ;
 
 const ChatBot = ({ setShow }) => {
   const [x, setX] = useState([]);
+  const [resp, setResponse] = useState()//Hello I'm your assistant.How can I help you?");
   const [message, setMessage] = useState("");
 
   const updateContent = () => {
     // use className = "chatbot_message_receive" to create a div for messages given to the user as replies
-    const newDiv = [<div className="chatbot_message_send">{message}</div>];
-    setX([...x, ...newDiv]);
+    var obj = {"message_from_user":message}
+    axios.post('http://0.0.0.0:5000/code/chatbotreply', obj)
+     .then((response)=> {
+        //console.log(response)
+        setResponse(response.data)
+        const newDiv = [<div className="chatbot_message_send">{message}</div>];
+        const respDiv = [<div className="chatbot_message_receive">{response.data}</div>]
+        setX([...x, ...newDiv,...respDiv]);
+     })
+     .catch((error) => {
+       console.log(error);
+     });
+    
+    
     setMessage("");
-    console.log(x);
+    //console.log(x);
   };
 
   const handleChange = (e) => {
