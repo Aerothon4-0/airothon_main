@@ -5,9 +5,12 @@ import {
 } from './NavbarElements'
 
 const Navbar = ({toggle}) => {
+    const refresh = ()=>{
+        window.location.reload(false);
+    }
   return (
       <>
-          <Nav>
+          <Nav> 
               <NavbarContainer>
                   <NavLogo to='/' style={{color:"white"}}>
                       Aerothon 4.0
