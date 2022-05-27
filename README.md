@@ -5,13 +5,16 @@
 - ### Flask
 
     #### `pip install flask`
+    #### `python run.py`
 
 - ### React
 
-    In the client directory, you can run:
+    #### In the client directory, you can run:
     #### `npm install`
+    #### `npm start`
    
 - ### Docker
+    #### [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
 
    
 
