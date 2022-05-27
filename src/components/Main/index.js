@@ -78,7 +78,8 @@ class Main extends React.Component {
 
       // update below request code
       
-      axios.post('http://127.0.0.1:5000/code/generate_website', obj)
+      // axios.post('http://ec2-35-83-83-107.us-west-2.compute.amazonaws.com:5000/code/generate_website', obj)
+      axios.post('http://0.0.0.0:5000/code/generate_website', obj)
      .then((response)=> {
       this.setState({
         response_data: response.data.response_data.frontend_url,
