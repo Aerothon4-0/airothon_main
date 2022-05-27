@@ -74,7 +74,7 @@ class Main extends React.Component {
       setTimeout(() => {
         this.setState({
           showloader: false,
-          response_data:'https://www.google.com/',
+          response_data:'https://github.com/Aerothon4-0/airothon_react_native_AR',
           redirect:true
         });
       }, 2000);
@@ -128,7 +128,7 @@ class Main extends React.Component {
               ></VideoBg>
             </MainBg>
             {this.state.showloader?
-                  <div style={{color:"white",fontWeight:"bold",zIndex:"9999",marginTop:"-30%"}}><h1>Loading Data From Server....</h1></div>
+                  <div style={{color:"white",fontWeight:"bold",zIndex:"9999",marginTop:"-30%"}}><h1>Creating server. This may take some minutes....</h1></div>
               :<MainContent >
               <InputForm >
                 <div className="container" >
