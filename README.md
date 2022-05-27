@@ -16,11 +16,11 @@ In the client directory, you can run:
 ### Ports 5000-5010 and 3000-3010 should be available
 
 
-### Frontend URL
-#### Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Frontend URL
+### Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### Backend URL
-####
+## Backend URL
+###
 
-### When we inpuut the details and press submit, the user's project will be deployed in a seperate port using docker.
+## When we inpuut the details and press submit, the user's project will be deployed in a seperate port using docker.
 
