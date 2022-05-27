@@ -14,6 +14,7 @@ import axios from "axios";
 class Main extends React.Component {
   state = {
     redirect: false,
+    showloader:false,
     website_name:'',
     frontend:'Frontend Framework',
     company_name:'',
@@ -71,13 +72,11 @@ class Main extends React.Component {
         alert('Details insufficent, please fill all required fields')
     }else{
 
-      // delete the below setstate after updation
-      // this.setState({
-      //   redirect: true,
-      // });
+      this.setState({
+        showloader: true,
+      });
 
       // update below request code
-      
       // axios.post('http://ec2-35-83-83-107.us-west-2.compute.amazonaws.com:5000/code/generate_website', obj)
       axios.post('http://0.0.0.0:5000/code/generate_website', obj)
      .then((response)=> {
@@ -85,12 +84,14 @@ class Main extends React.Component {
         response_data: response.data.response_data.frontend_url,
      });
        this.setState({
+          showloader: false,
           redirect: true,
        });
        //console.log(response.data.response_data.frontend_url);
      })
      .catch((error) => {
        this.setState({
+        showloader: false,
          redirect: true,
        });
        console.log(error);
@@ -108,7 +109,9 @@ class Main extends React.Component {
       // console.log("in else", this.state);
       return (
         <>
-          <MainContainer id="mn">
+        {this.state.showloader?
+            <center>Loading...</center>
+        :<MainContainer id="mn">
             <MainBg>
               <VideoBg
                 autoPlay
@@ -263,7 +266,8 @@ class Main extends React.Component {
                 </div>
               </InputForm>
             </MainContent>
-          </MainContainer>
+          </MainContainer>}
+          
         </>
       );
     }
